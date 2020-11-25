@@ -1,4 +1,10 @@
 {
   "name": "timer",
-  "displayName": "timer"
+  "displayName": "timer",
+  "expo": {
+    "slug": "timer",
+    "name": "timer",
+    "sdkVersion": "39.0.0",
+    "entryPoint": ".vscode\\exponentIndex.js"
+  }
 }
