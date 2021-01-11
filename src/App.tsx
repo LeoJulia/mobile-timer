@@ -8,33 +8,48 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
   ScrollView,
   StatusBar,
   View,
+  Text,
+  Modal,
 } from 'react-native';
 
-import {Button} from './components';
+import {Button, Card, CreateCard} from './components';
 
 const App = () => {
+  const [isStartCreating, setStartCreating] = useState(false);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
-        />
+          style={styles.scrollView}>
+          <Card>
+            <Text>Looong text</Text>
+          </Card>
+        </ScrollView>
         <View>
           <Button
             wrapperStyle={styles.buttonWrapper}
             buttonStyle={styles.button}
             text={'+'}
+            onPress={() => setStartCreating(true)}
           />
         </View>
+        <Modal
+          transparent={true}
+          visible={isStartCreating}
+          animationType="slide"
+          onRequestClose={() => setStartCreating(false)}>
+          <CreateCard onClose={() => setStartCreating(false)} />
+        </Modal>
       </SafeAreaView>
     </>
   );
