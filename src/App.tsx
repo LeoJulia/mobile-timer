@@ -9,56 +9,43 @@
  */
 
 import React from 'react';
+import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
+import * as eva from '@eva-design/eva';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  StatusBar,
-  View,
-} from 'react-native';
-
-import {Button} from './components';
+  ApplicationProvider,
+  Layout,
+  Text,
+  IconRegistry,
+} from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
+import { Search } from './components';
 
 const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
-        />
-        <View>
-          <Button
-            wrapperStyle={styles.buttonWrapper}
-            buttonStyle={styles.button}
-            text={'+'}
-          />
-        </View>
-      </SafeAreaView>
+      <IconRegistry icons={EvaIconsPack} />
+      <ApplicationProvider {...eva} theme={eva.light}>
+        <SafeAreaView>
+          <ScrollView contentInsetAdjustmentBehavior='automatic'>
+            <Layout style={styles.container}>
+              <Layout>
+                <Search />
+                <Text category='h1'>Tabs</Text>
+                <Text category='h1'>List</Text>
+              </Layout>
+            </Layout>
+          </ScrollView>
+        </SafeAreaView>
+      </ApplicationProvider>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: '#242424',
-    height: '100%',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
     padding: 20,
-  },
-  buttonWrapper: {
-    backgroundColor: '#60a0ff',
-    alignItems: 'center',
-    width: 50,
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    borderRadius: 100,
-  },
-  button: {
-    color: '#ffffff',
-    fontSize: 40,
-    marginTop: -4,
   },
 });
 

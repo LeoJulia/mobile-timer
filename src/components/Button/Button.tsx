@@ -1,25 +1,16 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
 import {Text, TouchableOpacity} from 'react-native';
 
 interface IButtonProps {
-  buttonStyle: any;
-  wrapperStyle: any;
   text: string;
+  onPress: () => void;
+  buttonStyle?: object;
+  wrapperStyle?: object;
 }
 
-const Button = ({buttonStyle, wrapperStyle, text}: IButtonProps) => {
+const Button = ({buttonStyle, wrapperStyle, text, onPress}: IButtonProps) => {
   return (
-    <TouchableOpacity style={wrapperStyle}>
+    <TouchableOpacity style={wrapperStyle} onPress={onPress}>
       <Text style={buttonStyle}>{text}</Text>
     </TouchableOpacity>
   );
