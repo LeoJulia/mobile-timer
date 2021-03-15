@@ -9,26 +9,35 @@
  */
 
 import React from 'react';
-import * as eva from '@eva-design/eva';
-import { ApplicationProvider, Layout, Text } from '@ui-kitten/components';
 import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
+import * as eva from '@eva-design/eva';
+import {
+  ApplicationProvider,
+  Layout,
+  Text,
+  IconRegistry,
+} from '@ui-kitten/components';
+import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { Search } from './components';
 
 const App = () => {
   return (
-    <ApplicationProvider {...eva} theme={eva.light}>
-      <SafeAreaView>
-        <ScrollView contentInsetAdjustmentBehavior='automatic'>
-          <Layout style={styles.container}>
-            <Layout>
-              <Search />
-              <Text category='h1'>Tabs</Text>
-              <Text category='h1'>List</Text>
+    <>
+      <IconRegistry icons={EvaIconsPack} />
+      <ApplicationProvider {...eva} theme={eva.light}>
+        <SafeAreaView>
+          <ScrollView contentInsetAdjustmentBehavior='automatic'>
+            <Layout style={styles.container}>
+              <Layout>
+                <Search />
+                <Text category='h1'>Tabs</Text>
+                <Text category='h1'>List</Text>
+              </Layout>
             </Layout>
-          </Layout>
-        </ScrollView>
-      </SafeAreaView>
-    </ApplicationProvider>
+          </ScrollView>
+        </SafeAreaView>
+      </ApplicationProvider>
+    </>
   );
 };
 

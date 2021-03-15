@@ -14,9 +14,10 @@
     "@reduxjs/toolkit": "^1.4.0",
     "@types/react-redux": "^7.1.11",
     "@ui-kitten/components": "^5.0.0",
+    "@ui-kitten/eva-icons": "^5.0.0",
     "react": "16.13.1",
     "react-native": "0.63.3",
-    "react-native-svg": "^12.1.0",
+    "react-native-svg": "^9.13.6",
     "react-redux": "^7.2.2"
   },
   "devDependencies": {
