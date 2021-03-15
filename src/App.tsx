@@ -8,72 +8,49 @@
  * @format
  */
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import * as eva from '@eva-design/eva';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  StatusBar,
-  View,
+  ApplicationProvider,
+  Layout,
   Text,
-  Modal,
-} from 'react-native';
-
-import {Button, Card, CreateCard} from './components';
+  Input,
+} from '@ui-kitten/components';
+import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
 
 const App = () => {
-  const [isStartCreating, setStartCreating] = useState(false);
+  const [value, setValue] = useState<string>();
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
+    <ApplicationProvider {...eva} theme={eva.light}>
       <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Card>
-            <Text>Looong text</Text>
-          </Card>
+        <ScrollView contentInsetAdjustmentBehavior='automatic'>
+          <Layout style={styles.container}>
+            <Layout>
+              <Input
+                style={styles.search}
+                placeholder='Поиск'
+                value={value}
+                onChangeText={(newValue: string) => setValue(newValue)}
+              />
+              <Text category='h1'>Tabs</Text>
+              <Text category='h1'>List</Text>
+            </Layout>
+          </Layout>
         </ScrollView>
-        <View>
-          <Button
-            wrapperStyle={styles.buttonWrapper}
-            buttonStyle={styles.button}
-            text={'+'}
-            onPress={() => setStartCreating(true)}
-          />
-        </View>
-        <Modal
-          transparent={true}
-          visible={isStartCreating}
-          animationType="slide"
-          onRequestClose={() => setStartCreating(false)}>
-          <CreateCard onClose={() => setStartCreating(false)} />
-        </Modal>
       </SafeAreaView>
-    </>
+    </ApplicationProvider>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: '#242424',
-    height: '100%',
+  container: {
+    flex: 1,
+    justifyContent: 'center',
     padding: 20,
   },
-  buttonWrapper: {
-    backgroundColor: '#60a0ff',
-    alignItems: 'center',
-    width: 50,
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
-    borderRadius: 100,
-  },
-  button: {
-    color: '#ffffff',
-    fontSize: 40,
-    marginTop: -4,
+  search: {
+    alignSelf: 'stretch',
   },
 });
 
