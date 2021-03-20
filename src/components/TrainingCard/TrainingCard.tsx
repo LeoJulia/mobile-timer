@@ -1,33 +1,27 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { ListItem, Text, Icon } from '@ui-kitten/components';
+import { ListItem, StyleService } from '@ui-kitten/components';
+import { CardHeader, CardDescription, CardActionButtons } from './components';
 
 const renderHeader = (item: { text: string }) => () => (
-  <Text category='h2'>{item.text}</Text>
+  <CardHeader item={item} />
 );
 
-const renderDescription = (item) => () => (
-  <Text>
-    <Icon name='clock-outline' fill='#000' style={styles.icon} />
-    {item.time}
-  </Text>
+const renderDescription = (item) => () => <CardDescription item={item} />;
+
+const renderActionButtons = () => () => <CardActionButtons />;
+
+export const TrainingCard = ({ item, index }) => (
+  <ListItem
+    key={index}
+    style={styles.card}
+    title={renderHeader(item)}
+    description={renderDescription(item)}
+    accessoryRight={renderActionButtons()}
+  />
 );
-
-export const TrainingCard = ({ item, index }) => {
-  return (
-    <ListItem
-      key={index}
-      style={styles.card}
-      title={renderHeader(item)}
-      description={renderDescription(item)}
-      //   accessoryRight
-    />
-  );
-};
-
-const styles = StyleSheet.create({
+const styles = StyleService.create({
   card: {
-    marginBottom: 20,
+    padding: 10,
   },
   icon: {
     width: 23,

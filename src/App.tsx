@@ -1,11 +1,12 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, View, Dimensions } from 'react-native';
+import { SafeAreaView, StyleSheet, Dimensions } from 'react-native';
 import * as eva from '@eva-design/eva';
 import {
   ApplicationProvider,
   Text,
   IconRegistry,
   List,
+  Layout,
 } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { Search, TrainingCard } from './components';
@@ -19,18 +20,18 @@ const App = () => {
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={eva.light}>
         <SafeAreaView>
-          <View style={styles.container}>
-            <View>
+          <Layout style={styles.container}>
+            <Layout>
               <Search />
-            </View>
-            <View>
+            </Layout>
+            <Layout>
               <Text category='h1'>Tabs</Text>
-            </View>
+            </Layout>
             <List
               data={array}
               renderItem={(props) => <TrainingCard {...props} />}
             />
-          </View>
+          </Layout>
         </SafeAreaView>
       </ApplicationProvider>
     </>
