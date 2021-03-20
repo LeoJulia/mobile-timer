@@ -1,5 +1,7 @@
 import React from 'react';
-import { Text, Icon, StyleService, Layout } from '@ui-kitten/components';
+import { Text, StyleService, Layout } from '@ui-kitten/components';
+import { Icon } from '../../Icon';
+import { IconType, IconSize } from '../../../constants';
 
 export const CardDescription = ({ item }) => (
   <Layout
@@ -7,16 +9,12 @@ export const CardDescription = ({ item }) => (
       flexDirection: 'row',
       backgroundColor: 'transparent',
     }}>
-    <Icon name='clock-outline' fill='#C4C4C4' style={styles.icon} />
+    <Icon type={IconType.Clock} fill='#C4C4C4' size={IconSize.Small} />
     <Text style={styles.description}>{item.time}</Text>
   </Layout>
 );
 
 const styles = StyleService.create({
-  icon: {
-    width: 23,
-    height: 23,
-  },
   description: {
     color: '#C4C4C4',
     fontSize: 18,

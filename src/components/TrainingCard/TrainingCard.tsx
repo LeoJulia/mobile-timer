@@ -23,8 +23,4 @@ const styles = StyleService.create({
   card: {
     padding: 10,
   },
-  icon: {
-    width: 23,
-    height: 23,
-  },
 });

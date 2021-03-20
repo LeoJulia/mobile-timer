@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Dimensions } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import * as eva from '@eva-design/eva';
 import {
   ApplicationProvider,
@@ -11,7 +11,6 @@ import {
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import { Search, TrainingCard } from './components';
 
-const screenHeight = Dimensions.get('window').height;
 const array = new Array(30).fill({ text: 'some item', time: '1:44' });
 
 const App = () => {
@@ -40,10 +39,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 20,
-    flexDirection: 'column',
-    flexBasis: screenHeight,
   },
 });
 

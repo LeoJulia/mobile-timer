@@ -1,21 +1,10 @@
 import React from 'react';
-import { Text, Icon, StyleService } from '@ui-kitten/components';
-import { IconType } from '../../../constants';
+import { Icon } from '../../Icon';
+import { IconSize, IconType } from '../../../constants';
 
 export const CardActionButtons = () => (
-  <Text>
-    <Icon
-      name={IconType.Settings}
-      fill='#DDDDDD'
-      style={styles.actionButtons}
-    />
-    <Icon name={IconType.Play} fill='#DDDDDD' style={styles.actionButtons} />
-  </Text>
+  <>
+    <Icon type={IconType.Settings} size={IconSize.Big} />
+    <Icon type={IconType.Play} size={IconSize.Big} />
+  </>
 );
-
-const styles = StyleService.create({
-  actionButtons: {
-    width: 53,
-    height: 53,
-  },
-});
