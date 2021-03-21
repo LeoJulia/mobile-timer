@@ -1,24 +1,17 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
- *
- * @format
- */
-
 import React from 'react';
-import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 import * as eva from '@eva-design/eva';
 import {
   ApplicationProvider,
-  Layout,
   Text,
   IconRegistry,
+  List,
+  Layout,
 } from '@ui-kitten/components';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
-import { Search } from './components';
+import { Search, TrainingCard } from './components';
+
+const array = new Array(30).fill({ text: 'some item', time: '1:44' });
 
 const App = () => {
   return (
@@ -26,15 +19,18 @@ const App = () => {
       <IconRegistry icons={EvaIconsPack} />
       <ApplicationProvider {...eva} theme={eva.light}>
         <SafeAreaView>
-          <ScrollView contentInsetAdjustmentBehavior='automatic'>
-            <Layout style={styles.container}>
-              <Layout>
-                <Search />
-                <Text category='h1'>Tabs</Text>
-                <Text category='h1'>List</Text>
-              </Layout>
+          <Layout style={styles.container}>
+            <Layout>
+              <Search />
             </Layout>
-          </ScrollView>
+            <Layout>
+              <Text category='h1'>Tabs</Text>
+            </Layout>
+            <List
+              data={array}
+              renderItem={(props) => <TrainingCard {...props} />}
+            />
+          </Layout>
         </SafeAreaView>
       </ApplicationProvider>
     </>
@@ -43,8 +39,6 @@ const App = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
     padding: 20,
   },
 });

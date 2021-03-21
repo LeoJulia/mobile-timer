@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { Icon, Input } from '@ui-kitten/components';
+import { Input } from '@ui-kitten/components';
+import { Icon } from '../Icon';
+import { IconType, IconSize } from '../../constants';
 
-const SearchIcon = (props) => <Icon {...props} name='search-outline' />;
+const SearchIcon = (props) => (
+  <Icon {...props} type={IconType.Search} size={IconSize.Small} />
+);
 
 export const Search = () => {
   const [value, setValue] = useState<string>();
