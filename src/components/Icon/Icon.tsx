@@ -1,18 +1,18 @@
 import React from 'react';
 import { Icon, StyleService } from '@ui-kitten/components';
-import { IconSize, IconType } from '../../constants';
+import { IconSize, IconType, Colors } from '../../constants';
 
 interface TIcon {
   [key: string]: any;
   type: IconType;
   size: IconSize;
-  color?: string;
+  color?: Colors;
 }
 
 export const IconComponent = ({
   type,
   size,
-  color = '#DDDDDD',
+  color = Colors.lightGray,
   ...props
 }: TIcon) => <Icon {...props} name={type} fill={color} style={styles[size]} />;
 

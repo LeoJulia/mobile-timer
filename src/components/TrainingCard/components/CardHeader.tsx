@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, StyleService } from '@ui-kitten/components';
+import { Colors } from '../../../constants';
 
 export const CardHeader = ({ item }) => (
   <Text style={styles.header}>{item.text}</Text>
@@ -7,7 +8,7 @@ export const CardHeader = ({ item }) => (
 
 const styles = StyleService.create({
   header: {
-    color: '#868686',
+    color: Colors.darkGray,
     fontSize: 24,
   },
 });
