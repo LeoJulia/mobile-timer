@@ -1,45 +1,64 @@
-import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import * as eva from '@eva-design/eva';
-import {
-  ApplicationProvider,
-  Text,
-  IconRegistry,
-  List,
-  Layout,
-} from '@ui-kitten/components';
-import { EvaIconsPack } from '@ui-kitten/eva-icons';
-import { Search, TrainingCard } from './components';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * Generated with the TypeScript template
+ * https://github.com/react-native-community/react-native-template-typescript
+ *
+ * @format
+ */
 
-const array = new Array(30).fill({ text: 'some item', time: '1:44' });
+import React from 'react';
+import {
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
+  StatusBar,
+  View,
+} from 'react-native';
+
+import {Button} from './components';
 
 const App = () => {
   return (
     <>
-      <IconRegistry icons={EvaIconsPack} />
-      <ApplicationProvider {...eva} theme={eva.light}>
-        <SafeAreaView>
-          <Layout style={styles.container}>
-            <Layout>
-              <Search />
-            </Layout>
-            <Layout>
-              <Text category='h1'>Tabs</Text>
-            </Layout>
-            <List
-              data={array}
-              renderItem={(props) => <TrainingCard {...props} />}
-            />
-          </Layout>
-        </SafeAreaView>
-      </ApplicationProvider>
+      <StatusBar barStyle="dark-content" />
+      <SafeAreaView>
+        <ScrollView
+          contentInsetAdjustmentBehavior="automatic"
+          style={styles.scrollView}
+        />
+        <View>
+          <Button
+            wrapperStyle={styles.buttonWrapper}
+            buttonStyle={styles.button}
+            text={'+'}
+          />
+        </View>
+      </SafeAreaView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  scrollView: {
+    backgroundColor: '#242424',
+    height: '100%',
     padding: 20,
+  },
+  buttonWrapper: {
+    backgroundColor: '#60a0ff',
+    alignItems: 'center',
+    width: 50,
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    borderRadius: 100,
+  },
+  button: {
+    color: '#ffffff',
+    fontSize: 40,
+    marginTop: -4,
   },
 });
 
