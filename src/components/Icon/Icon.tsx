@@ -18,8 +18,8 @@ export const IconComponent = ({
 
 const styles = StyleService.create({
   big: {
-    width: 53,
-    height: 53,
+    width: 43,
+    height: 43,
   },
   small: {
     width: 24,
